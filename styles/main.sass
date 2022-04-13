@@ -1,0 +1,325 @@
+@import './components/subscribe/subscribe'
+@import './desing'
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: 'Lato', sans-serif
+  color: #6f6e6e
+
+a
+  text-decoration: none
+  color: #6f6e6e
+
+span
+  color: rgba(241, 109, 127, 1)
+
+summary
+  display: block
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 38px
+  width: 87px
+  outline: none
+  &::-webkit-details-marker
+    display: none
+  &::after
+    content: '\25B6'
+    padding-left: 1em
+
+details[open]
+  & > summary
+    &::after
+      content: '\25BC'
+  & > .summary__list
+    &::after
+      content: '\25BC'
+      color: rgba(239, 91, 112, 1)
+
+.center
+  padding: 0 calc(50% - 570px)
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  top: 0px
+  left: 0px
+  height: 100px
+  background-color: rgba(255, 255, 255, 1)
+  border: 1px solid rgba(236, 236, 236, 1)
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.17)
+
+.logo
+  margin-top: 1px
+  display: flex
+  align-items: center
+  color: rgba(34, 34, 34, 1)
+  font-size: 27px
+  font-weight: 300
+
+.logo__img
+  margin-right: 13px
+
+.header__left
+  display: flex
+  align-items: center
+
+.header__form
+  display: flex
+  align-items: center
+  margin-left: 37px
+  height: 39px
+  width: 403px
+  background-color: rgba(255, 255, 255, 1)
+  border-radius: 0px 3px 3px 0px
+
+.header__browse
+  border: 1px solid rgba(230, 230, 230, 1)
+  background-color: rgba(245, 245, 245, 1)
+  border-radius: 3px 0px 0px 3px
+  font-size: 14px
+  position: relative
+  .drop
+    display: flex
+.header__input
+  height: 40px
+  width: 317px
+  border: 1px solid rgba(230, 230, 230, 1)
+  border-right-style: none
+  border-left-style: none
+  padding-left: 16px
+  padding-right: 16px
+  font-size: 14px
+  outline: none
+.header__search
+  padding: 12px 11px 12px 11px
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 40px
+  width: 36px
+  border: 1px solid rgba(230, 230, 230, 1)
+  border-radius: 0px 3px 3px 0px
+  outline: none
+.header__right
+  display: flex
+  align-items: center
+.header__cart
+  margin-right: 26px
+.button
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: rgba(241, 109, 127, 1)
+  height: 38px
+  width: 130px
+  font-size: 15px
+  color: rgba(255, 255, 255, 1)
+  font-weight: bold
+.menu
+  display: flex
+  justify-content: center
+  list-style: none
+.menu__link
+  font-size: 14px
+  font-weight: bold
+  color: rgba(34, 34, 34, 1)
+  text-align: left
+  line-height: 26px
+  text-transform: uppercase
+  padding: 20px
+  display: block
+.menu__list
+  position: relative
+  &:hover
+    .drop
+      display: flex
+.drop
+  display: none
+  background-color: #fff
+  border-radius: 5px
+  padding: 12px 20px
+  border: 1px solid rgba(236, 236, 236, 1)
+  position: absolute
+  top: 52px
+  z-index: 1
+.drop_button
+  top: 36px
+.drop__flex
+  width: 234px
+  margin-right: 46.75px
+  &:last-of-type
+    margin-right: 0
+.drop__last
+  right: 0
+.drop__ul
+  list-style-type: none
+.drop__link
+  font-size: 14px
+  color: rgba(100, 100, 100, 1)
+  letter-spacing: 0.03em
+  line-height: 28px
+  &:hover
+    color: rgba(241, 109, 127, 1)
+.drop__h3
+  font-size: 14px
+  color: rgba(35, 35, 35, 1)
+  letter-spacing: 0.03em
+  text-transform: uppercase
+  padding-bottom: 8px
+  padding-top: 8px
+  border-bottom: 1px solid rgba(232, 232, 232, 1)
+  margin-bottom: 8px
+
+.footer__info
+  display: flex
+  justify-content: space-between
+  padding-bottom: 64px
+.footer__logo
+  padding-bottom: 20px
+.logo__text1
+  width: 430px
+  font-size: 14px
+  font-weight: 300
+  color: rgba(137, 137, 137, 1)
+  letter-spacing: 0.03em
+  line-height: 24px
+  margin-bottom: 30px
+.logo__text2
+  width: 430px
+  font-size: 14px
+  font-weight: 300
+  color: rgba(137, 137, 137, 1)
+  letter-spacing: 0.03em
+  line-height: 24px
+.info_company
+  width: 102px
+.info__title
+  margin-bottom: 35px
+  font-size: 18px
+  font-weight: bold
+  color: rgba(241, 109, 127, 1)
+  line-height: 26px
+.info__nav
+  height: 179px
+  list-style-type: none
+.company__link
+  color: rgba(137, 137, 137, 1)
+  font-size: 16px
+  color: rgba(137, 137, 137, 1)
+  letter-spacing: 0.03em
+  line-height: 42px
+  &:hover
+    color: rgba(241, 109, 127, 1)
+.info__information
+  width: 149px
+.info__category
+  width: 154px
+.footer__social
+  height: 79px
+  background-color: rgba(232, 232, 232, 1)
+.footer__social-box
+  height: 79px
+  display: flex
+  justify-content: space-between
+  align-items: center
+.footer__date
+  display: flex
+  font-size: 16px
+  color: rgba(122, 122, 122, 1)
+  align-items: center
+.footer__link
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 32px
+  width: 32px
+  margin-right: 25px
+  background: #fff
+  &:hover
+    background: rgba(241, 109, 127, 1)
+.footer-img
+  filter: invert(0.2)
+  &:hover
+    filter: sepia(20)
+.twitt
+  filter: invert(0.28)
+.social
+  display: flex
+  width: 300px
+
+.arrivals
+  background-color: rgba(248, 243, 244, 1)
+.arrivals__content
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 148px
+  background-repeat: no-repeat
+  background-position: center -51px
+.arrivals__h1
+  margin-left: 9px
+  font-size: 24px
+  font-weight: 900
+  color: rgba(241, 109, 127, 1)
+  text-align: center
+  line-height: 20px
+  text-transform: uppercase
+.arrivals__bread-crumbs
+  width: 205px
+.bread-crumbs__link
+  font-size: 14px
+  font-weight: 300
+  color: rgba(99, 99, 99, 1)
+  line-height: 20px
+  text-transform: uppercase
+  &:hover
+    color: rgba(241, 109, 127, 1)
+    font-weight: 900
+h5
+  font-size: 18px
+  font-weight: 900
+h4
+  font-size: 30px
+  font-weight: 900
+
+.drop_category
+  padding-left: 16px
+
+.summary__list
+  width: 243px
+  border-left: 5px solid rgba(239, 91, 112, 1)
+  display: flex
+  justify-content: space-between
+  padding-left: 10px
+  font-size: 14px
+  font-weight: bold
+  color: rgba(111, 110, 110, 1)
+  line-height: 20px
+  text-transform: uppercase
+  &::-webkit-details-marker
+    display: none
+  &::after
+    content: '\25B6'
+    font-size: 10px
+    font-family: 'FontAwesome'
+    color: rgba(111, 110, 110, 1)
+
+.show
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 30px
+  border: 1px solid rgba(230, 230, 230, 1)
+  background-color: #fff
+  border-right-style: none
+  padding-left: 16px
+  padding-right: 16px
+  outline: none
+  font-size: 14px
+  color: rgba(111, 110, 110, 1)
