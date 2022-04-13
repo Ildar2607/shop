@@ -83,6 +83,10 @@ class CartItem extends GoodsItem {
     </div>
   </div>`;
   }
+
+  addProduct(product) {
+
+  }
 }
 
 class CartList extends GoodsList {
@@ -116,10 +120,6 @@ class CartList extends GoodsList {
 
   showOrder() {
     document.querySelector('.shopping-total__value').innerHTML = this.sum;
-  }
-
-  addProduct(product) {
-
   }
 
   removeProduct(id) {
