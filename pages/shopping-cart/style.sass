@@ -1,0 +1,99 @@
+$colorSite: rgba(241, 109, 127, 1)
+$colorBorder: rgba(230, 230, 230, 1)
+
+.shopping-box
+	padding-top: 68px
+	padding-bottom: 80px
+	&_buttons
+		padding-top: 44px
+		display: flex
+		justify-content: space-between
+	&__head
+		display: flex
+		justify-content: space-between
+		list-style-type: none
+		border-bottom: 1px solid $colorBorder
+		padding-bottom: 20px
+		font-size: 13px
+		font-weight: bold
+		color: rgba(34, 34, 34, 1)
+		letter-spacing: -0.01em
+		line-height: 20px
+		text-transform: uppercase
+		li
+			min-width: 116px
+			text-align: center
+			&:first-child
+				padding-left: 0
+				width: 300px
+.shopping-cart
+	padding-top: 22px
+	&__clear
+		background-color: #fff
+		height: auto
+		width: auto
+		padding: 20px 39px
+		font-size: 14px
+		font-weight: bold
+		color: rgba(74, 74, 74, 1)
+		text-transform: uppercase
+
+.sh-product
+	display: flex
+	justify-content: space-between
+	align-items: center
+	list-style-type: none
+	border-bottom: 1px solid $colorBorder
+	padding-bottom: 20px
+	font-size: 13px
+	font-weight: bold
+	color: rgba(34, 34, 34, 1)
+	letter-spacing: -0.01em
+	line-height: 20px
+	&__img
+		width: 300px
+		display: flex
+		img
+			width: 100px
+			object-fit: contain
+	&__description
+		margin-top: 13px
+		margin-left: 20px
+		p
+			color: rgba(34, 34, 34, 1)
+		span
+			color: #898989
+	&__item
+		min-width: 116px
+		display: flex
+		align-items: center
+		justify-content: center
+
+.counter
+	display: flex
+	justify-content: center
+	width: 116px
+	align-items: center
+	&__btn
+		width: 25px
+		height: 25px
+		background: #e6e6e6
+		cursor: pointer
+		border-radius: 100px
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: background-color 0.25s
+		line-height: 10
+		&:hover
+			background-color: gray
+	&__value
+		width: 40px
+		text-align: center
+.delete-btn
+	cursor: pointer
+
+.shopping-total
+	padding: 10px
+	text-align: right
+	font-size: 20px
