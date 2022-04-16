@@ -1,10 +1,10 @@
 
 class GoodsItem {
-  constructor(id, title, price, img) {
-    this.id = id;
-    this.title = title;
-    this.price = price;
-    this.img = img
+  constructor(product) {
+    this.id = product.id;
+    this.title = product.title;
+    this.price = product.price;
+    this.img = product.img
   }
 
   render() {
@@ -41,7 +41,7 @@ class GoodsList {
   render() {
     let listHtml = '';
     this.goods.forEach(good => {
-      const goodItem = new GoodsItem(good.id, good.title, good.price, good.img)
+      const goodItem = new GoodsItem(good)
       listHtml += goodItem.render()
     })
     document.querySelector('.product').innerHTML = listHtml;
@@ -56,9 +56,9 @@ class GoodsList {
 
 class CartItem extends GoodsItem {
 
-  constructor(id, title, price, img, amount) {
-    super(id, title, price, img)
-    this.amount = amount;
+  constructor(product) {
+    super(product)
+    this.amount = product.amount;
   }
   render() {
     return `<div class="shopping-cart__sh-product sh-product">
@@ -111,7 +111,7 @@ class CartList extends GoodsList {
   render() {
     let listHtml = '';
     this.goods.forEach(good => {
-      const goodItem = new CartItem(good.id, good.title, good.price, good.img, good.amount);
+      const goodItem = new CartItem(good);
       listHtml += goodItem.render();
       this.sum += good.price;
     })
