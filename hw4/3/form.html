@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="form.js"></script>
+
+    <title>Form</title>
+</head>
+<body>
+    <form action="#" class="form">
+        <div class="form__f-row f-row">
+            <input class="f-row__input" type="text" name="firstname" placeholder="Имя">
+            <div class="f-row__error">Вы ввели некорректные данные</div>
+        </div>
+        <div class="form__f-row f-row">
+            <input class="f-row__input" type="text" name="phone" placeholder="+7(000)000-0000">
+            <div class="f-row__error">Должно быть +7(000)000-0000</div>
+        </div>
+        <div class="form__f-row f-row">
+            <input class="f-row__input" type="text" name="email" placeholder="E-mail">
+            <div class="f-row__error">Вы ввели некорректные данные</div>
+        </div>
+        <button class="form__submit" type="submit">Отправить</button>
+    </form>
+</body>
+</html>
+
+
+<!-- * Создать форму обратной связи с полями: Имя, Телефон, E-mail, текст, кнопка Отправить.
+При нажатии на кнопку Отправить произвести валидацию полей следующим образом:
+a. Имя содержит только буквы.
+b. Телефон имеет вид +7(000)000-0000.
+c. E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru.
+d. Текст произвольный.
+e. Если одно из полей не прошло валидацию, необходимо выделить это поле красной рамкой
+и сообщить пользователю об ошибке. -->
