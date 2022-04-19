@@ -1,0 +1,57 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    font-size: 20px
+    font-family: sans-serif
+
+
+
+.form
+    padding: 20px
+    margin: 0
+    width: 400px
+    &__submit
+        background: green
+        font-size: 20px
+        font-family: sans-serif
+        display: block
+        cursor: pointer
+        width: 100%
+        color: white
+        border-radius: 10px
+        border: none
+        padding: 10px
+    
+
+.f-row
+    height: 70px
+    margin-bottom: 10px
+    position: relative
+    &.not-valid
+        .f-row__input
+            border: 1px solid red
+        .f-row__error
+            opacity: 1
+    &.is-valid
+        .f-row__input
+            border: 1px solid green
+    &__input
+        font-size: 20px
+        font-family: sans-serif
+        width: 100%
+        border-radius: 10px
+        border: 1px solid gray
+        padding: 10px
+        transition: border-color 0.25s
+    &__error
+        position: absolute
+        bottom: 0
+        right: 0
+        font-size: 15px
+        color: red
+        opacity: 0
+        transition: opacity 0.25s
+    
