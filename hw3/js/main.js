@@ -7,6 +7,7 @@ class List{
         this.list = list; //для связи между классами. В данном случае что отрендерить, товар корзины или каталога.
         this.goods = [];//массив товаров из JSON документа
         this.allProducts = []; // доп.массив товаров в который мы будем добавлять и удалять товары и их количество.
+        this.total = 0; // итоговая сумма товаров в корзине
         this._init(); // вызывается при создании потомка, у разных потомков _init свой.
     }
     getJson(url){ // запрос данных с сервера
@@ -20,7 +21,9 @@ class List{
         this.goods = [...data];
         this.render();
     }
-
+    calcSum(){
+        return this.allProducts.reduce((accum, item) => accum += (item.price * (item.quantity ? item.quantity : 1)), 0);
+    }
     render(){
         console.log(this.constructor.name);
         const block = document.querySelector(this.container); //определяем блок куда мы будем рендерить проект.
@@ -29,6 +32,8 @@ class List{
             this.allProducts.push(productObj);
             block.insertAdjacentHTML('beforeend', productObj.render())  // выводится рендер того класса, который вызвал, new ProductItem или new CartItem.
         }
+        this.total = this.calcSum()
+        document.querySelector('.cart__total').textContent = `Total: $${this.total}`
     }
 
     _init(){ // инициализация событий для класса
@@ -82,8 +87,8 @@ class CartList extends List {
         super(url, container);
         this.getJson()
             .then(data => {
-                this.handleData(data.contents);
-            }); //вывели все товары корзины
+                this.handleData(data.contents); //вывели все товары корзины
+            }); 
     }
     addProduct(nodeElem) {
         this.getJson(`${API}/addToBasket.json`)
@@ -92,7 +97,8 @@ class CartList extends List {
                     let productId = +nodeElem.dataset['id']; // получаем id и приводим его к числу, из data атирибута, но добавляем не на сервере, а в объекте allProducts
                     let find = this.allProducts.find(product => product.id_product === productId); // находим наш объект в allProducts
                     if(find) {
-                        find.quantity++; // Уменьшаем количество на 1?
+                        find.quantity++; // Увеличиваем количество на 1?
+                        this.total += find.price // увеличиваем и итоговую сумму заказа
                         this._updateCart(find); // запускаем обновление массива allProducts.
                     } else {
                         let product = {
@@ -117,10 +123,13 @@ class CartList extends List {
                     let find = this.allProducts.find(product => product.id_product === productId); // находим наш объект в allProducts
                     if(find.quantity > 1 ) {
                         find.quantity--; // Уменьшаем количество на 1?
+                        this.total -= find.price // Уменьшеаем и количество итоговой суммы заказа.
                         this._updateCart(find); // запускаем обновление массива allProducts.
                     } else {
                         this.allProducts.splice(this.allProducts.indexOf(find), 1);
+                        this.total -= find.price; // Уменьшеаем и количество итоговой суммы заказа.
                         document.querySelector(`.cart__good[data-id="${productId}"]`).remove();
+                        document.querySelector('.cart__total').textContent = `Total: $${this.total}`// Обновляем HTML
                     }
                 } else {
                     alert('Error');
@@ -131,7 +140,8 @@ class CartList extends List {
     _updateCart(product) {
         let block = document.querySelector(`.cart__good[data-id="${product.id_product}"]`);
         block.querySelector('.good__quantity').textContent = `Quantity: ${product.quantity}`;
-        block.querySelector('.good__total').textContent = `${product.quantity * product.price}$`
+        block.querySelector('.good__total').textContent = `${product.quantity * product.price}$`;
+        document.querySelector('.cart__total').textContent = `Total: $${this.total}`;
     }
 
     _init() {

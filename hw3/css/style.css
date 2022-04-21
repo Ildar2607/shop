@@ -103,6 +103,12 @@ img {
     color: #000000;
 }
 
+.cart__total {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: red;
+}
+
 .cart.show {
     display: block;
 }
