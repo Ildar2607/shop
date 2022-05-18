@@ -78,4 +78,4 @@ const app = new Vue({
                 this.filtered = this.products
             })
     }
-})
+});
