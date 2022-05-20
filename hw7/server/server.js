@@ -20,7 +20,7 @@ app.get('/api/products', (req, res) => {
         } else {
             res.send(data);
         }
-    })
+    });
 });
 
 // app.get('/api/cart/:id', (req, res) => {

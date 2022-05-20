@@ -3,7 +3,8 @@ const fs = require('fs');
 
 const actions = {
     add: cart.add,
-    change: cart.change
+    change: cart.change,
+    remove: cart.remove
 };
 
 let handler = (req, res, action, file) => {
@@ -11,16 +12,16 @@ let handler = (req, res, action, file) => {
         if(err){
             res.sendStatus(404, JSON.stringify({result:0, text: err}));
         } else {
-            let newCart = actions[action](JSON.parse(data), req);
+            let newCart = actions[action](JSON.parse(data), req); //req нужен чтобы получить гет параметр переданный в наш сервер
             fs.writeFile(file, newCart, (err) => {
                 if(err){
                     res.sendStatus(404, JSON.stringify({result:0, text: err}));
                 } else {
-                    res.send(JSON.stringify({result: 1}))
+                    res.send(JSON.stringify({result: 1}));
                 }
-            })
+            });
         }
-    })
+    });
 };
 
 module.exports = handler;

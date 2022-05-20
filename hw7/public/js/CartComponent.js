@@ -1,5 +1,3 @@
-// const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
 Vue.component('cart', {
     data(){
       return {
@@ -25,32 +23,38 @@ Vue.component('cart', {
                 this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1})
                     .then(data => {
                         if(data.result === 1){
-                            find.quantity++
+                            find.quantity++;
                         }
-                    })
+                    });
             } else {
                 const prod = Object.assign({quantity: 1}, item);
-                item.imgPath = `img/${item.id_product}.jpg`;
                 this.$parent.postJson(`/api/cart`, prod)
                     .then(data => {
                         if(data.result === 1){
-                            this.cartItems.push(prod)
+                            this.cartItems.push(prod);
                         }
-                    })
+                    });
             }
         },
-        remove(item){
-            this.$parent.getJson(`${API}/addToBasket.json`)
-                .then(data => {
-                    if (data.result === 1) {
-                        if(item.quantity>1){
-                            item.quantity--;
-                        } else {
-                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
+        remove(product){
+            if(product.quantity > 1) {
+                this.$parent.putJson(`/api/cart/${product.id_product}`, {quantity: -1})
+                    .then(data => {
+                        if(data.result) {
+                            product.quantity--;
                         }
-                    }
-                })
-        },
+                    });
+            } else {
+                this.$parent.delJson(`/api/cart/${product.id_product}`)
+                    .then(data => {
+                        if(data.result) {
+                            this.cartItems.splice(this.cartItems.indexOf(product), 1);
+                        } else {
+                            console.log('error');
+                        }
+                    });
+            }
+        }
     },
     template: `
     <div class="btn-cart-wrap">
@@ -69,7 +73,7 @@ Vue.component('cart', {
                     <li>Subtotal</li>
                     <li>ACTION</li>
                 </ul>
-                <cart-item v-for="item of cartItems" :key="item.id_product" :img="item.imgPath" :cart-item="item"
+                <cart-item v-for="item of cartItems" :key="item.id_product" :img="item.img_product" :cart-item="item"
                      @remove="remove" @add-product="addProduct">
                 </cart-item>
             </div>  

@@ -10,13 +10,16 @@ router.get('/', (req, res) => {
         } else {
             res.send(data);
         }
-    })
+    });
 });
 router.post('/', (req, res) => {
     handler(req, res, 'add', 'server/db/userCart.json');
 });
-router.put('/:id', (req, res) => {
-    handler(req, res, 'change', 'server/db/userCart.json');
+router.put('/:id', (req, res) => { // первым гет параметром принимаются все параметры которые мы передали 
+    handler(req, res, 'change', 'server/db/userCart.json'); // последний параметр укажем путь к файлику с которым будем работать 
+});
+router.delete('/:id', (req, res) => {
+    handler(req, res, 'remove', `server/db/userCart.json`);
 });
 
 module.exports = router;
