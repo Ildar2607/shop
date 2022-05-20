@@ -1,0 +1,14 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 12,
+            "product_name": "cappuccino set",
+            "img_product": "img/12.png",
+            "price": 12800,
+            "imgPath": "img/12.png"
+        }
+    ]
+}
