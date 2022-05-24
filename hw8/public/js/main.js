@@ -1,3 +1,4 @@
+import '../css/style.css';
 const linkListSection = document.getElementById('menu');
 const menu = [
   { link: '#', name: 'Главная'},
@@ -11,6 +12,8 @@ const renderLinkList = (list) => {
 // document.querySelector('.menu').innerHTML = linkList.join('');
 };
 renderLinkList(menu);
+
+
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
 const app = new Vue({
@@ -20,14 +23,11 @@ const app = new Vue({
     },
     methods: {
         getJson(url){
-            console.log(url);
-            
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    // console.log(error)
                     this.$refs.error.text = error;
-                })
+                });
         },
         postJson(url, data){
             return fetch(url, {
@@ -39,7 +39,6 @@ const app = new Vue({
             })
                 .then(result => result.json())
                 .catch(error => {
-                    // console.log(error)
                     this.$refs.error.text = error;
                 })
         },
@@ -53,7 +52,6 @@ const app = new Vue({
             })
                 .then(result => result.json())
                 .catch(error => {
-                    // console.log(error)
                     this.$refs.error.text = error;
                 });
         },
@@ -72,8 +70,6 @@ const app = new Vue({
 
     },
     mounted(){
-
-
     }
 
 });
