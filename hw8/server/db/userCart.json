@@ -4,14 +4,6 @@
     "contents": [
         {
             "quantity": 1,
-            "id_product": 11,
-            "product_name": "Milk bowl",
-            "img_product": "img/11.png",
-            "price": 7500,
-            "imgPath": "img/11.png"
-        },
-        {
-            "quantity": 1,
             "id_product": 12,
             "product_name": "cappuccino set",
             "img_product": "img/12.png",
@@ -25,6 +17,14 @@
             "img_product": "img/13.png",
             "price": 5380,
             "imgPath": "img/13.png"
+        },
+        {
+            "quantity": 1,
+            "id_product": 11,
+            "product_name": "Milk bowl",
+            "img_product": "img/11.png",
+            "price": 7500,
+            "imgPath": "img/11.png"
         }
     ]
 }
